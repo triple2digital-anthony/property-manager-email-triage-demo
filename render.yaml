@@ -1,0 +1,6 @@
+services:
+  - type: static
+    name: property-manager-email-triage-demo
+    buildCommand: echo "Static site ready"
+    staticPublishPath: .
+    autoDeploy: true

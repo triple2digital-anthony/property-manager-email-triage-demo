@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Property Manager Email Triage Demo</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">All Area Realty Services style workflow</p>
+          <h1>Property Manager Email Triage Demo</h1>
+          <p class="lede">
+            A simulated command center for classifying client emails, routing requests,
+            drafting replies, and keeping property-management follow-up organized.
+          </p>
+        </div>
+        <div class="hero-card">
+          <span class="stat-value">4</span>
+          <span class="stat-label">sample client emails</span>
+        </div>
+      </header>
+
+      <section class="dashboard-grid" aria-label="Email triage dashboard">
+        <aside class="panel inbox-panel">
+          <div class="panel-header">
+            <h2>Simulated Inbox</h2>
+            <span id="inbox-count" class="pill">4 emails</span>
+          </div>
+          <div id="inbox-list" class="inbox-list"></div>
+        </aside>
+
+        <section class="workbench">
+          <section class="metrics-grid" aria-label="Selected email classification">
+            <article class="metric-card">
+              <span class="metric-label">Priority</span>
+              <strong id="metric-priority">P0</strong>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Category</span>
+              <strong id="metric-category">Repairs</strong>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Status</span>
+              <strong id="metric-status">Escalated</strong>
+            </article>
+            <article class="metric-card">
+              <span class="metric-label">Due</span>
+              <strong id="metric-due">Immediate</strong>
+            </article>
+          </section>
+
+          <section class="decision-grid">
+            <article class="panel">
+              <div class="panel-header">
+                <h2>Triage Decision</h2>
+                <span id="route-pill" class="pill active">Emergency process</span>
+              </div>
+              <dl class="details-list">
+                <div>
+                  <dt>Next action</dt>
+                  <dd id="next-action"></dd>
+                </div>
+                <div>
+                  <dt>Sender type</dt>
+                  <dd id="sender-type"></dd>
+                </div>
+                <div>
+                  <dt>Building</dt>
+                  <dd id="building"></dd>
+                </div>
+                <div>
+                  <dt>Internal owner</dt>
+                  <dd id="owner"></dd>
+                </div>
+              </dl>
+            </article>
+
+            <article class="panel">
+              <div class="panel-header">
+                <h2>Missing Intake Details</h2>
+              </div>
+              <ul id="missing-info" class="missing-list"></ul>
+            </article>
+          </section>
+
+          <section class="panel">
+            <div class="panel-header">
+              <h2>Suggested Reply Draft</h2>
+              <button id="reset-draft" class="ghost-button" type="button">Reset Draft</button>
+            </div>
+            <p class="warning">
+              Human review required. Do not promise refund approval, board decisions,
+              vendor arrival times, or legal/compliance outcomes unless confirmed.
+            </p>
+            <textarea id="reply-draft" rows="13" spellcheck="true"></textarea>
+          </section>
+        </section>
+      </section>
+
+      <section class="tracker-section">
+        <div class="section-heading">
+          <h2>Tracker View</h2>
+          <p>
+            The selected inbox item is highlighted. This is the handoff view for
+            follow-up, owner assignment, and aging items.
+          </p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Received</th>
+                <th>Client</th>
+                <th>Category</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Owner</th>
+                <th>Due</th>
+              </tr>
+            </thead>
+            <tbody id="tracker-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="priority-section">
+        <div class="section-heading">
+          <h2>Priority Rules</h2>
+          <p>Use these rules to decide what gets handled first.</p>
+        </div>
+        <div class="priority-grid">
+          <article class="priority-card">
+            <h3>P0 Emergency</h3>
+            <p class="response-time">Immediate escalation</p>
+            <p>Active leak, fire, smoke, carbon monoxide, elevator entrapment.</p>
+          </article>
+          <article class="priority-card">
+            <h3>P1 Same Day</h3>
+            <p class="response-time">Acknowledge today</p>
+            <p>Heat complaint, urgent access issue, board-sensitive complaint.</p>
+          </article>
+          <article class="priority-card">
+            <h3>P2 Standard</h3>
+            <p class="response-time">1 to 2 business days</p>
+            <p>Routine repair, refund status, move coordination.</p>
+          </article>
+          <article class="priority-card">
+            <h3>P3 Low Priority</h3>
+            <p class="response-time">Batch process</p>
+            <p>FYI, duplicate thread, general non-urgent update.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
