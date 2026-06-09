@@ -92,6 +92,7 @@ p {
 h1 {
   max-width: 900px;
   margin-bottom: 10px;
+  color: #bf5af2;
   font-size: clamp(2.45rem, 7vw, 5.7rem);
   line-height: 0.9;
   letter-spacing: -0.06em;
