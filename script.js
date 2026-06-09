@@ -104,6 +104,13 @@ function priorityShort(priority) {
   return priority.split(" ")[0];
 }
 
+function priorityClass(priority) {
+  if (priority.startsWith("P0")) return "danger";
+  if (priority.startsWith("P1")) return "warning";
+  if (priority.startsWith("P2")) return "info";
+  return "";
+}
+
 function categoryShort(category) {
   return category.split(" / ")[0];
 }
@@ -120,7 +127,7 @@ function renderInbox() {
     item.innerHTML = `
       <div class="inbox-title-row">
         <span class="subject"></span>
-        <span class="pill${scenario.id === selectedId ? " active" : ""}"></span>
+        <span class="pill ${priorityClass(scenario.priority)}${scenario.id === selectedId ? " active" : ""}"></span>
       </div>
       <p class="meta"></p>
       <p class="preview"></p>
@@ -149,6 +156,7 @@ function renderDecision() {
   document.querySelector("#metric-status").textContent = scenario.status;
   document.querySelector("#metric-due").textContent = scenario.due;
   document.querySelector("#route-pill").textContent = scenario.route;
+  document.querySelector("#route-pill").className = `pill active ${priorityClass(scenario.priority)}`;
   document.querySelector("#next-action").textContent = scenario.nextAction;
   document.querySelector("#sender-type").textContent = scenario.senderType;
   document.querySelector("#building").textContent =
